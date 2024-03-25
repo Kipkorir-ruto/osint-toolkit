@@ -28,6 +28,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import CvssCalculator from "./components/cvss-calculator/CvssCalculator";
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
 
 
@@ -86,6 +87,34 @@ export default function Main() {
   };
 
   return (
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", minHeight: "100vh", backgroundColor: "#536475" }}>
+    <SignedOut>
+      <div style={{ textAlign: "center" }}>
+        <h1 style={{ fontSize: "2rem", color: "#FFFFFF", marginBottom: "2rem" }}>
+          Welcome to the OSINT Toolkit!
+        </h1>
+        <p style={{ fontSize: "1.2rem", color: "#FFFFFF", marginBottom: "2rem" }}>
+          This toolkit is designed to assist you in Open Source Intelligence (OSINT) investigations. It provides a range of powerful tools and features to help you gather, analyze, and extract valuable information from various sources.
+        </p>
+        <p style={{ fontSize: "1.2rem", color: "#FFFFFF", marginBottom: "2rem" }}>
+          With the OSINT Toolkit, you can stay up-to-date with the latest news, analyze IOCs (Indicators of Compromise), extract relevant information, monitor domains, and even get assistance from our AI-powered assistant. Additionally, you can calculate CVSS scores, create custom rules, and customize your settings to suit your needs.
+        </p>
+        <p style={{ fontSize: "1.2rem", color: "#FFFFFF", marginBottom: "2rem" }}>
+          To get started, simply select one of the tabs below to access the corresponding tool or feature. Each tab represents a different module of the toolkit, allowing you to seamlessly navigate between them.
+        </p>
+        <p style={{ fontSize: "1.2rem", color: "#FFFFFF", marginBottom: "2rem" }}>
+          We hope you find the OSINT Toolkit valuable and that it enhances your OSINT investigations. Happy exploring!
+        </p>
+        <SignInButton style={{ padding: "1rem 2rem", backgroundColor: "#3B82F6", color: "#FFFFFF", borderRadius: "0.5rem", boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)", transition: "background-color 0.3s ease-in-out" }} />
+      </div>
+    </SignedOut>
+    <SignedIn>
+    <div style={{ position: "absolute", top: 0, right: 0, padding: "1rem" }}>
+    <p style={{ fontSize: "1.2rem", color: "#FFFFFF", marginBottom: "0.5rem" }}>
+        User Profile
+      </p>
+        <UserButton style={{ fontSize: "1.5rem" }} />
+    </div>
     <Paper
       sx={{
         minWidth: "450px",
@@ -171,5 +200,7 @@ export default function Main() {
         <Settings />
       </TabPanel>
     </Paper>
+    </SignedIn>
+    </div>
   );
 }

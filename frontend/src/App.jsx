@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { atom, useSetRecoilState, useRecoilValue } from "recoil";
 import api from "./api";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -191,14 +190,6 @@ function App() {
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <header>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
           <Main />
         </ThemeProvider>
       </ColorModeContext.Provider>
